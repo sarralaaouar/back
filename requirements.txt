@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 python-dotenv
 torch==2.7.1
-torchvision==0.14.1+cpu
+torchvision==0.15.2
 torchaudio==0.13.1+cpu
 sentence-transformers
 transformers
