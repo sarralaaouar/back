@@ -179,7 +179,22 @@ from torch_geometric.data import Data
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer, AutoModel
 from openai import OpenAI
+from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+
+# Autoriser uniquement ton domaine frontend
+origins = [
+    "https://front-theta-pied-26.vercel.app"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # ou ["*"] pour tout autoriser (non recommandé en prod)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load environment vars
 load_dotenv()
