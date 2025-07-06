@@ -3,7 +3,7 @@ uvicorn[standard]
 python-dotenv
 torch==2.7.1
 torchvision==0.22.1
-torchaudio==0.13.1+cpu
+torchaudio==2.7.1
 sentence-transformers
 transformers
 faiss-cpu
