@@ -179,11 +179,23 @@ from torch_geometric.data import Data
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer, AutoModel
 from openai import OpenAI
+import joblib
+
 
 # Load environment vars
 load_dotenv()
 
 app = FastAPI()
+scaler = None
+encoder = None
+
+@app.on_event("startup")
+async def load_models():
+    global scaler, encoder
+    if not scaler:
+        scaler = joblib.load("models/scaler.pkl")  # Ou .joblib
+    if not encoder:
+        encoder = joblib.load("models/encoder.pkl")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
