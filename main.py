@@ -179,7 +179,6 @@ from torch_geometric.data import Data
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer, AutoModel
 from openai import OpenAI
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -199,7 +198,6 @@ app.add_middleware(
 # Load environment vars
 load_dotenv()
 
-app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
